@@ -21,9 +21,9 @@ root.render(
     <BrowserRouter>
         <Routes>
             <Route exact path = '/' element = {<App/>}/>
-            <Route path ='register' element = {<Register/>}/>
-            <Route path ='login' element = {<Login/>}/>
-            <Route path ='search' element = {<Search/>}/>
+            <Route path ='/auth/register' element = {<Register/>}/>
+            <Route path ='/auth/login' element = {<Login/>}/>
+            <Route path ='/works' element = {<Search/>}/>
             <Route path = '*' element = {<Error/>}/>
             
 
