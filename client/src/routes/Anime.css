@@ -1,0 +1,34 @@
+.anime{
+    width: 250px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.animeImageContainer{
+    width: 100%;
+    height: 85%;
+}
+
+.animeImage{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+}
+
+.animeInfoContainer{
+    display: flex;
+    height: 15%;
+}
+
+.animeTitle{
+    padding: 5px;
+    font-size: 15px;
+}
+
+.addButton{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+
+}

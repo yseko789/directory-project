@@ -8,8 +8,8 @@ const WorkSchema = new mongoose.Schema({
     },
     status:{
         type: String,
-        enum: ['Queue', 'Current', 'Finished'],
-        default: 'queue'
+        enum: ['In Queue', 'Current', 'Finished'],
+        default: 'In Queue'
     },
     type:{
         type: String,

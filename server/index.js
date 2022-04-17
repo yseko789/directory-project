@@ -17,10 +17,14 @@ const authenticateUser = require('./middleware/authentication');
 
 app.use(express.json());
 
+app.get('/api/v1', (req,res)=>{
+    res.json({message: 'Helloooooo from server!'});
+})
+
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/works',authenticateUser, worksRouter);
 
-const port = 3000;
+const port = 3001;
 
 const start = async () =>{
     try{
