@@ -12,6 +12,8 @@ import App from './App';
 import Register  from './routes/Register';
 import Login from './routes/Login';
 import Search from './routes/Search';
+import Account from './routes/Account';
+import Logout from './routes/Logout';
 import Error from './routes/Error';
 
 
@@ -20,13 +22,13 @@ const root = ReactDOM.createRoot(container);
 root.render(
     <BrowserRouter>
         <Routes>
-            <Route exact path = '/' element = {<App/>}/>
+            <Route exact path = '/' element = {<Search/>}/>
             <Route path ='/auth/register' element = {<Register/>}/>
             <Route path ='/auth/login' element = {<Login/>}/>
-            <Route path ='/works' element = {<Search/>}/>
+            {/* <Route path ='/works' element = {<Search/>}/> */}
+            <Route path = '/account' element = {<Account/>}/>
+            <Route path = '/auth/logout' element = {<Logout/>}/>
             <Route path = '*' element = {<Error/>}/>
-            
-
         </Routes>
     </BrowserRouter>
 );

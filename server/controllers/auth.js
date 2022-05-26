@@ -10,33 +10,43 @@ const register = async(req, res) =>{
 
 const login = async(req, res)=>{
     const {email, password} = req.body;
+    //check that email and password are entered
     if(!email)
     {
-        res.send('Please enter an email.');
-        return;
+        throw new Error('Username is required.');
+        // res.send({message: 'Username is required.'});
+        // return;
     }
     if(!password)
     {
-        res.send('Please enter a password.');
-        return;
+        throw new Error('Password is required.');
+        // res.send({message: 'Password is required.'});
+        // return;
     }
+    
+    //find user from database
     const user = await User.findOne({email});
+    //if user is not found
     if(!user)
     {
-        res.send('User does not exist.');
-        return;
+        throw new Error('User does not exist.');
+        // res.send({message: 'User does not exist.'});
+        // return;
     }
+    //if user is found, check that password matches
+    //if it does, create JWT so user can access their directory
     if(await user.comparePass(password))
     {
+        
         const token = user.createJWT();
         res.status(StatusCodes.OK).json({user: {name: user.name}, token});
     }
     else
     {
-        res.status(StatusCodes.UNAUTHORIZED).send('Wrong Password.');
+        throw new Error('Wrong password.');
+        // res.status(StatusCodes.UNAUTHORIZED).send({message: 'Wrong Password.'});
     }
 
-    
 }
 
 module.exports = {register, login};

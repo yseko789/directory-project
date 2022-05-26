@@ -3,6 +3,7 @@ const {StatusCodes} = require('http-status-codes');
 
 
 const createWork = async (req,res)=>{
+    console.log('here');
     const {title} = req.body;
     if(!title)
     {
@@ -21,6 +22,7 @@ const getAllWork = async(req,res)=>{
 
 
 
+
 const getSingleWork = async(req,res) =>{
     const {user:{userId}, params:{id: workId}} = req;
     const work = await Work.findOne({createdBy: userId, _id: workId});
@@ -30,8 +32,12 @@ const getSingleWork = async(req,res) =>{
         return;
     }
     res.status(StatusCodes.OK).json(work);
-
 }
+
+// const checkSingleWork = async(req, res)=>{
+//     const {user:{userId}, }
+//     const work = await Work.findOne({createdBy: userId, title})
+// }
 
 //can update the status of the work
 const updateWork = async(req,res)=>{

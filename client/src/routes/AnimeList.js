@@ -10,8 +10,11 @@ const AnimeList = ({animeResult}) =>
     })
 
     return (
-        <div className = 'animeList'>
-            {list}
+        <div className='container mt-4'>
+            <div className='row d-flex justify-content-between'>
+                {list}
+            </div>
+
         </div>
 
         

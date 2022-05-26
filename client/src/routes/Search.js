@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AnimeList from './AnimeList';
+import Nav from './Nav';
+import './stylesheets/search.css'
+
 
 
 function Search() {
@@ -14,33 +17,34 @@ function Search() {
   }
   
   useEffect(()=>{
-    fetchAnimes();
+    const timer = setTimeout(()=>fetchAnimes(), 500);
+    return ()=>clearTimeout(timer);
   }, [animeSearch]);
 
   
 
   return(
-    <div>
-
-   
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand">Anime Search</a>
-          <form class="d-flex">
-            <input 
-              className="form-control me-2" 
-              type="search" 
-              placeholder= 'Search Anime...'
-              aria-label="Search"
-              value = {animeSearch}
-              onChange = {(e)=>setAnimeSearch(e.target.value)}
-            />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+    <div className = 'screen-search'>
+      <Nav location='search'/>
       
-        
+      <div className="container mt-4">
+        <div className = 'row'>
+            <div className='input-group'>
+              <input 
+                className = 'form-control shaddow-none'
+                type="search" 
+                placeholder= 'Search Anime...'
+                aria-label="Search"
+                value = {animeSearch}
+                onChange = {(e)=>setAnimeSearch(e.target.value)}
+              />
+              <button className="btn btn-primary btn-custom" type="button">Search</button>
+            </div>
+        </div>
+      </div>
+
+      <div className='container'>
+        <div className='row'>
           {
             animeResult.length === 0 &&
             <h1 className = 'Loading'>
@@ -51,11 +55,13 @@ function Search() {
             animeResult.length >0 &&
             <AnimeList animeResult = {animeResult}/>
           }
-  
+        </div>
         
-        
-
       </div>
+    </div>
+
+
+
     
   )
 

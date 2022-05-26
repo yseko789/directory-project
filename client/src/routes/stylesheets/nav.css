@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Arvo:ital,wght@1,700&display=swap");
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    padding: 10px;
+    background-color: rgb(16,37,66);
+    
+}
+
+.link{
+    text-decoration: none !important;
+    font-size: 2em;
+    color: rgb(248, 112, 96);
+    font-family: 'Arvo';
+
+}

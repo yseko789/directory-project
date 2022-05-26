@@ -13,7 +13,7 @@ const WorkSchema = new mongoose.Schema({
     },
     type:{
         type: String,
-        enum: ['Anime', 'Manga']
+        enum: ['anime', 'manga']
     },
     createdBy: {
         type: mongoose.Types.ObjectId,
